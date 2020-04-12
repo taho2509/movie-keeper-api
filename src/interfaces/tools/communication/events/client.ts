@@ -1,12 +1,22 @@
 import config from '../../config/config'
-const stan = require('node-nats-streaming').connect('test-cluster', 'demo-test-automation', {
-  url: config.get('NATS_URL'),
-})
 import logger from '../../logger'
 
-interface Message {
-  getSequence(): string
-  getData(): string
+interface Stan {
+  on: (event: string, callback: () => void) => void
+  publish: (channel: string, message: string, callback: (err: string, guid: string) => void) => void
+}
+
+let stan: Stan
+
+if (config.get('NODE_ENV') !== 'testing') {
+  stan = require('node-nats-streaming').connect('test-cluster', 'demo-test-automation', {
+    url: config.get('NATS_URL'),
+  })
+} else {
+  stan = {
+    on(): void {},
+    publish(): void {},
+  }
 }
 
 stan.on('connect', (): void => {

@@ -1,264 +1,185 @@
 {
-	"info": {
-		"_postman_id": "846ba519-fc22-4c5b-a4b6-02f7901b386a",
-		"name": "movie-keeper-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "health",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5b65111-faea-4aad-a899-34243f9625c9",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"To have correlational id header\", function () {",
-							"    pm.response.to.have.header(\"X-Correlational-Id\");",
-							"});",
-							"pm.test(\"message is healthy\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).to.be.equal('The API is healthy');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/v1.0.0/health",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"v1.0.0",
-						"health"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "search",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5b65111-faea-4aad-a899-34243f9625c9",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"To have correlational id header\", function () {",
-							"    pm.response.to.have.header(\"X-Correlational-Id\");",
-							"});",
-							"pm.test(\"the body is correctly formatted\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    var local = jsonData.local;",
-							"    pm.expect(local).to.be.an('array');",
-							"    local.forEach(movie => {",
-							"        pm.expect(movie.title).to.be.a('string');",
-							"        pm.expect(movie.year).to.be.a('string');",
-							"        pm.expect(movie.poster).to.be.a('string');",
-							"    })",
-							"    var external = jsonData.local;",
-							"    pm.expect(external).to.be.an('array');",
-							"    external.forEach(movie => {",
-							"        pm.expect(movie.title).to.be.a('string');",
-							"        pm.expect(movie.year).to.be.a('string');",
-							"        pm.expect(movie.poster).to.be.a('string');",
-							"    })",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3001/v1.0.0/search?title=hercules",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"v1.0.0",
-						"search"
-					],
-					"query": [
-						{
-							"key": "title",
-							"value": "hercules"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5b65111-faea-4aad-a899-34243f9625c9",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"To have correlational id header\", function () {",
-							"    pm.response.to.have.header(\"X-Correlational-Id\");",
-							"});",
-							"pm.test(\"the body is correctly formatted\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.title).to.be.a('string');",
-							"    pm.expect(jsonData.year).to.be.a('string');",
-							"    pm.expect(jsonData.released).to.be.a('string');",
-							"    pm.expect(jsonData.runtime).to.be.a('string');",
-							"    pm.expect(jsonData.genre).to.be.an('array');",
-							"    pm.expect(jsonData.directors).to.be.an('array');",
-							"    pm.expect(jsonData.writers).to.be.an('array');",
-							"    pm.expect(jsonData.actors).to.be.an('array');",
-							"    pm.expect(jsonData.plot).to.be.a('string');",
-							"    pm.expect(jsonData.language).to.be.a('string');",
-							"    pm.expect(jsonData.country).to.be.a('string');",
-							"    pm.expect(jsonData.awards).to.be.a('string');",
-							"    pm.expect(jsonData.poster).to.be.a('string');",
-							"    pm.expect(jsonData.production).to.be.a('string');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"title\": \"Endgame\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3001/v1.0.0/add",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"v1.0.0",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "route-not-founnd",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5b65111-faea-4aad-a899-34243f9625c9",
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});",
-							"pm.test(\"To have correlational id header\", function () {",
-							"    pm.response.to.have.header(\"X-Correlational-Id\");",
-							"});",
-							"pm.test(\"the body is correctly formatted\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).to.be.equal('Route /v1.0.0/searc Not Found');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/v1.0.0/searc",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"v1.0.0",
-						"searc"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "movie-not-founnd",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d5b65111-faea-4aad-a899-34243f9625c9",
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});",
-							"pm.test(\"To have correlational id header\", function () {",
-							"    pm.response.to.have.header(\"X-Correlational-Id\");",
-							"});",
-							"pm.test(\"the body is correctly formatted\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).to.be.equal('Movie not found!');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/v1.0.0/search?title=asdasdad",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"v1.0.0",
-						"search"
-					],
-					"query": [
-						{
-							"key": "title",
-							"value": "asdasdad"
-						}
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"protocolProfileBehavior": {}
+  "info": {
+    "_postman_id": "846ba519-fc22-4c5b-a4b6-02f7901b386a",
+    "name": "movie-keeper-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "health",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d5b65111-faea-4aad-a899-34243f9625c9",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"To have correlational id header\", function () {",
+              "    pm.response.to.have.header(\"X-Correlational-Id\");",
+              "});",
+              "pm.test(\"message is healthy\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.message).to.be.equal('The API is healthy');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3000/v1.0.0/health",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1.0.0", "health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "search",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d5b65111-faea-4aad-a899-34243f9625c9",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"To have correlational id header\", function () {",
+              "    pm.response.to.have.header(\"X-Correlational-Id\");",
+              "});",
+              "pm.test(\"the body is correctly formatted\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    var local = jsonData.local;",
+              "    pm.expect(local).to.be.an('array');",
+              "    local.forEach(movie => {",
+              "        pm.expect(movie.title).to.be.a('string');",
+              "        pm.expect(movie.year).to.be.a('string');",
+              "        pm.expect(movie.poster).to.be.a('string');",
+              "    })",
+              "    var external = jsonData.local;",
+              "    pm.expect(external).to.be.an('array');",
+              "    external.forEach(movie => {",
+              "        pm.expect(movie.title).to.be.a('string');",
+              "        pm.expect(movie.year).to.be.a('string');",
+              "        pm.expect(movie.poster).to.be.a('string');",
+              "    })",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3000/v1.0.0/search?title=hercules",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1.0.0", "search"],
+          "query": [
+            {
+              "key": "title",
+              "value": "hercules"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d5b65111-faea-4aad-a899-34243f9625c9",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"To have correlational id header\", function () {",
+              "    pm.response.to.have.header(\"X-Correlational-Id\");",
+              "});",
+              "pm.test(\"the response is true\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.eql(true);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"title\": \"Endgame\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3000/v1.0.0/add",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1.0.0", "add"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "route-not-founnd",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d5b65111-faea-4aad-a899-34243f9625c9",
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "pm.test(\"To have correlational id header\", function () {",
+              "    pm.response.to.have.header(\"X-Correlational-Id\");",
+              "});",
+              "pm.test(\"the body is correctly formatted\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.message).to.be.equal('Route /v1.0.0/searc Not Found');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3000/v1.0.0/searc",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1.0.0", "searc"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
 }
