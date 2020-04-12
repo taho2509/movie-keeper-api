@@ -1,6 +1,7 @@
 import { createMockContext } from '@shopify/jest-koa-mocks'
 import logger from '../../../../interfaces/tools/logger'
 import notFoundHandler from '../not-found/index'
+import { NotFoundError } from '../../../../interfaces/tools/errors'
 
 describe('NotFoundHandler Middeware', (): void => {
   beforeAll((): void => {
@@ -17,10 +18,12 @@ describe('NotFoundHandler Middeware', (): void => {
       method: 'GET',
     })
 
-    await notFoundHandler(mockedContext, jest.fn())
-    expect(mockedContext.status).toEqual(404)
-    expect(mockedContext.body).toHaveProperty('error')
-    expect(mockedContext.body.error.message).toBe('Resource: http://test.com/unexisting-url of type: route, Not Found')
-    done()
+    try {
+      await notFoundHandler(mockedContext, jest.fn())
+    } catch (error) {
+      expect(mockedContext.status).toEqual(404)
+      expect(error).toBeInstanceOf(NotFoundError)
+      done()
+    }
   })
 })
