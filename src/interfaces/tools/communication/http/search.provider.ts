@@ -4,8 +4,8 @@ import axios, { AxiosRequestConfig } from 'axios'
 import Movie from '../../../../domain/entities/movie'
 import config from '../../config/config'
 
-const url = config.get('OMDb_URL')
-const apiKey = config.get('OMDb_API_KEY')
+const url = config.get('OMDB_URL')
+const apiKey = config.get('OMDB_API_KEY')
 
 interface IncommingResult {
   Title: string

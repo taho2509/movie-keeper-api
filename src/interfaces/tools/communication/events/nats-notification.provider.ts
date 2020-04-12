@@ -1,6 +1,6 @@
 import { BadGateway } from '../../errors'
 import logger from '../../logger'
-import uuid from 'uuid'
+import { v4 } from 'uuid'
 import stan from './client'
 import NotificationProvider from '../../../../domain/interfaces/notification-provider.interface'
 
@@ -22,7 +22,7 @@ export default class NatsProvider implements NotificationProvider {
       logger.info(`Trying to send message to nats`)
 
       const event = {
-        id: uuid.v4(),
+        id: v4(),
         source: '/movie-keeper',
         specversion: '1.0',
         type: this.config.type,
