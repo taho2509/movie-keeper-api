@@ -1,23 +1,17 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import SaveMovieUseCase from '../save-movie.use-case'
 import Interactor from '../interactor'
+import Movie from '../../entities/movie'
 
 describe('SaveMovieUseCase', () => {
   let saveMovieUseCase: SaveMovieUseCase = null
-  const validateMock = jest.fn()
   const notifyMock = jest.fn()
 
   beforeEach(() => {
-    validateMock.mockReset()
     notifyMock.mockReset()
-    saveMovieUseCase = new SaveMovieUseCase(
-      {
-        validate: validateMock,
-      },
-      {
-        notify: notifyMock,
-      },
-    )
+    saveMovieUseCase = new SaveMovieUseCase({
+      notify: notifyMock,
+    })
   })
 
   it('should instantiate a SaveMovieUseCase', () => {
@@ -29,40 +23,15 @@ describe('SaveMovieUseCase', () => {
     expect(usecase.execute).toBeDefined()
   })
 
-  it('should use provider to validate data', async () => {
-    const movie = {}
-    await saveMovieUseCase.execute(movie)
-    expect(validateMock).toBeCalled()
-    expect(validateMock).toHaveBeenCalledWith(movie)
-  })
-
-  it('should use provider to when validate success publish data', async () => {
-    const movie = {}
-    validateMock.mockImplementation(() => true)
+  it('should notify', async () => {
+    const movie = ({} as unknown) as Movie
     await saveMovieUseCase.execute(movie)
     expect(notifyMock).toBeCalled()
     expect(notifyMock).toHaveBeenCalledWith(movie)
   })
 
-  it('should return false when validation fails', async () => {
-    const movie = {}
-    validateMock.mockImplementation(() => false)
-    const result = await saveMovieUseCase.execute(movie)
-
-    expect(result).toStrictEqual({ body: false })
-  })
-
-  it('should not notify when validation fails', async () => {
-    const movie = {}
-    validateMock.mockImplementation(() => false)
-    await saveMovieUseCase.execute(movie)
-
-    expect(notifyMock).not.toHaveBeenCalled()
-  })
-
   it('should return true', async () => {
-    const movie = {}
-    validateMock.mockImplementation(() => true)
+    const movie = ({} as unknown) as Movie
     const result = await saveMovieUseCase.execute(movie)
 
     expect(result).toStrictEqual({ body: true })

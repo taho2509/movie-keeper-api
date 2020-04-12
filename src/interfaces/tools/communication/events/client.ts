@@ -1,5 +1,6 @@
+import config from '../../config/config'
 const stan = require('node-nats-streaming').connect('test-cluster', 'demo-test-automation', {
-  url: process.env.NATS_URL,
+  url: config.get('NATS_URL'),
 })
 import logger from '../../logger'
 

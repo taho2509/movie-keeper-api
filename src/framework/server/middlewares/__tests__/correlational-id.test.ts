@@ -17,6 +17,7 @@ describe('Correlational Id Middeware', (): void => {
     await correlationalIdMiddleware(mockedContext, jest.fn())
 
     expect(mockedContext.response.header).toHaveProperty('x-correlational-id')
+    expect(mockedContext.response.header['x-correlational-id']).toMatch(/[a-z0-9\-]{36}/)
     done()
   })
 })

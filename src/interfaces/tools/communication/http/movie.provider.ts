@@ -3,9 +3,10 @@ import Search from '../../../../domain/entities/search'
 import axios, { AxiosRequestConfig } from 'axios'
 import Movie from '../../../../domain/entities/movie'
 import { NotFoundError } from '../../errors'
+import config from '../../config/config'
 
-const url = process.env.OMDb_URL
-const apiKey = process.env.OMDb_API_KEY
+const url = config.get('OMDb_URL')
+const apiKey = config.get('OMDb_API_KEY')
 
 export default class implements DataProvider {
   public async fetch(search: Search): Promise<Movie> {
