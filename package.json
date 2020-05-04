@@ -30,7 +30,7 @@
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^8.0.8",
-    "mongoose": "^5.9.10",
+    "mongoose": "^5.9.11",
     "node-nats-streaming": "^0.2.6",
     "uuid": "^8.0.0",
     "winston": "^3.2.1"
