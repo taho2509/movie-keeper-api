@@ -48,7 +48,7 @@
     "@types/newman": "^4.5.0",
     "@types/npm": "^2.0.31",
     "@types/stubby": "^4.1.0",
-    "@types/uuid": "^7.0.3",
+    "@types/uuid": "^8.0.0",
     "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
