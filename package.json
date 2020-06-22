@@ -33,7 +33,7 @@
     "mongoose": "^5.9.19",
     "node-nats-streaming": "^0.3.2",
     "uuid": "^8.1.0",
-    "winston": "^3.2.1"
+    "winston": "^3.3.1"
   },
   "devDependencies": {
     "@shopify/jest-koa-mocks": "^2.2.2",
