@@ -29,7 +29,7 @@
     "http-status-codes": "^1.4.0",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^9.0.1",
+    "koa-router": "^9.1.0",
     "mongoose": "^5.9.20",
     "node-nats-streaming": "^0.3.2",
     "uuid": "^8.2.0",
