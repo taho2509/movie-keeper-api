@@ -40,7 +40,7 @@
     "@types/cls-hooked": "^4.3.1",
     "@types/jest": "^26.0.14",
     "@types/js-yaml": "^3.12.5",
-    "@types/koa": "^2.11.4",
+    "@types/koa": "^2.11.5",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.4.1",
     "@types/koa__cors": "^3.0.2",
