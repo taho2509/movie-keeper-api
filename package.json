@@ -32,7 +32,7 @@
     "koa-router": "^10.0.0",
     "mongoose": "^5.11.5",
     "node-nats-streaming": "^0.3.2",
-    "uuid": "^8.3.1",
+    "uuid": "^8.3.2",
     "winston": "^3.3.3"
   },
   "devDependencies": {
