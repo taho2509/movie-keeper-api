@@ -36,7 +36,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@shopify/jest-koa-mocks": "^2.3.4",
+    "@shopify/jest-koa-mocks": "^3.0.0",
     "@types/cls-hooked": "^4.3.3",
     "@types/jest": "^26.0.23",
     "@types/js-yaml": "^3.12.5",
