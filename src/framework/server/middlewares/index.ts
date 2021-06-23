@@ -32,25 +32,23 @@ const middlewaresHandler: MiddlewareHandler = {
   },
 
   register: (app): Promise<void> => {
-    return new Promise(
-      async (resolve, reject): Promise<void> => {
-        logger.info('Registering middlewares.')
-        const defers = middlewaresHandler.__getAllActiveMiddlewares(middlewareConfiguration)
+    return new Promise(async (resolve, reject): Promise<void> => {
+      logger.info('Registering middlewares.')
+      const defers = middlewaresHandler.__getAllActiveMiddlewares(middlewareConfiguration)
 
-        try {
-          const middlewares = await Promise.all(defers.map((x): Promise<{ default: Middleware }> => x.middlewareModule))
-          middlewares.forEach((middleware, index): void => {
-            app.use(middleware.default)
-            logger.verbose(`registered "${defers[index].name}"`)
-          })
-        } catch (error) {
-          logger.error(error)
-          reject(error)
-        }
+      try {
+        const middlewares = await Promise.all(defers.map((x): Promise<{ default: Middleware }> => x.middlewareModule))
+        middlewares.forEach((middleware, index): void => {
+          app.use(middleware.default)
+          logger.verbose(`registered "${defers[index].name}"`)
+        })
+      } catch (error) {
+        logger.error(error)
+        reject(error)
+      }
 
-        resolve()
-      },
-    )
+      resolve()
+    })
   },
 }
 

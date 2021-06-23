@@ -57,14 +57,14 @@ describe('ErrorsHandler Middleware', (): void => {
         resolve({ default: async (ctx: object, next: () => Promise<void>): Promise<void> => await next() }),
       )
       jest.spyOn(middlewaresHandler, '__getAllActiveMiddlewares').mockImplementation(() => [
-        ({
+        {
           name: 'module1',
           middlewareModule: dummyMiddlewareModule,
-        } as unknown) as MiddlewareModule,
-        ({
+        } as unknown as MiddlewareModule,
+        {
           name: 'module2',
           middlewareModule: dummyMiddlewareModule,
-        } as unknown) as MiddlewareModule,
+        } as unknown as MiddlewareModule,
       ])
       const useSpy = jest.spyOn(app, 'use')
 
