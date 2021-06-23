@@ -19,12 +19,11 @@ describe('Health Service', (): void => {
     logger.unmute()
   })
 
-  it('Should get health', async (done): Promise<void> => {
+  it('Should get health', async (): Promise<void> => {
     const mockedContext = createMockContext()
 
     await healthService(mockedContext, jest.fn())
     expect(getMock).toBeCalled()
     expect(mockedContext.body).toBe('SUCCESS')
-    done()
   })
 })

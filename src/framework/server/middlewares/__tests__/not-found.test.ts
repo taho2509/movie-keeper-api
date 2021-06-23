@@ -12,7 +12,7 @@ describe('NotFoundHandler Middeware', (): void => {
     logger.unmute()
   })
 
-  it('should return 404 error', async (done): Promise<void> => {
+  it('should return 404 error', async (): Promise<void> => {
     const mockedContext = createMockContext({
       url: '/unexisting-url',
       method: 'GET',
@@ -23,7 +23,6 @@ describe('NotFoundHandler Middeware', (): void => {
     } catch (error) {
       expect(mockedContext.status).toEqual(404)
       expect(error).toBeInstanceOf(NotFoundError)
-      done()
     }
   })
 })
