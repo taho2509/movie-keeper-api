@@ -3,9 +3,11 @@ import MovieController from '../../../../interfaces/controllers/movie'
 import Movie from '../../../../domain/entities/movie'
 
 const addService: Middleware = async (ctx): Promise<void> => {
+  const { title, year } = ctx.request.body as { title: string; year: string }
+
   const movie: Movie = {
-    title: ctx.request.body.title,
-    year: ctx.request.body.year,
+    title,
+    year,
     poster: '',
   }
   const response = (await new MovieController().add(movie)) as { body: Record<string, unknown> }
