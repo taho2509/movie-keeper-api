@@ -33,15 +33,13 @@ export default class implements DataProvider {
       const { data } = await axios.get(url, options)
 
       if (data.Response === 'True') {
-        const parsed: Movie[] = data.Search.map(
-          (movie: IncommingResult): Movie => {
-            return {
-              title: movie.Title,
-              year: movie.Year,
-              poster: movie.Poster,
-            }
-          },
-        )
+        const parsed: Movie[] = data.Search.map((movie: IncommingResult): Movie => {
+          return {
+            title: movie.Title,
+            year: movie.Year,
+            poster: movie.Poster,
+          }
+        })
 
         return parsed
       } else {

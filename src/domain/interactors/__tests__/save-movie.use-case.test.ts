@@ -24,14 +24,14 @@ describe('SaveMovieUseCase', () => {
   })
 
   it('should notify', async () => {
-    const movie = ({} as unknown) as Movie
+    const movie = {} as unknown as Movie
     await saveMovieUseCase.execute(movie)
     expect(notifyMock).toBeCalled()
     expect(notifyMock).toHaveBeenCalledWith(movie)
   })
 
   it('should return true', async () => {
-    const movie = ({} as unknown) as Movie
+    const movie = {} as unknown as Movie
     const result = await saveMovieUseCase.execute(movie)
 
     expect(result).toStrictEqual({ body: true })

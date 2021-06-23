@@ -49,17 +49,15 @@ export default class implements DataProvider {
     try {
       const data = await findMovie(search.term)
 
-      const parsed: Movie[] = data.map(
-        (movie: MovieDocument): Movie => {
-          return {
-            title: movie.title,
-            year: movie.year,
-            poster: movie.poster,
-            directors: movie.directors,
-            country: movie.country,
-          }
-        },
-      )
+      const parsed: Movie[] = data.map((movie: MovieDocument): Movie => {
+        return {
+          title: movie.title,
+          year: movie.year,
+          poster: movie.poster,
+          directors: movie.directors,
+          country: movie.country,
+        }
+      })
 
       return parsed
     } catch (error) {

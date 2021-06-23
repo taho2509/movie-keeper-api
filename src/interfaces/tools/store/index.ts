@@ -6,12 +6,10 @@ type MiddlewareResult = Promise<any>
 type Next = () => MiddlewareResult
 
 const withId = async (id: string, next: Next): MiddlewareResult => {
-  return await store.runAndReturn(
-    async (): MiddlewareResult => {
-      store.set('correlator', id)
-      return await next()
-    },
-  )
+  return await store.runAndReturn(async (): MiddlewareResult => {
+    store.set('correlator', id)
+    return await next()
+  })
 }
 
 const getId = (): string => store.get('correlator')
