@@ -1,32 +1,60 @@
-import Koa from 'koa'
+import 'koa'
 import router from '../routes/router'
-import config from '../../../interfaces/tools/config/config'
-import logger from '../../../interfaces/tools/logger'
-import middlewaresHandler from '../middlewares'
+import '../../../interfaces/tools/config/config'
+import '../../../interfaces/tools/logger'
+import middlewares from '../middlewares'
 
-class KoaMock {
-  public use() {}
-  public emit() {}
-  public on() {}
-  public listen() {}
-}
-jest.mock('koa', (): typeof KoaMock => KoaMock)
-const routerMock = {
-  routes: (): string => 'routes',
-}
-jest.mock('../routes/router', (): object => routerMock)
-jest.mock('../../../interfaces/tools/config/config', (): object => ({
-  get: (): string => '3000',
-}))
-jest.mock('../../../interfaces/tools/logger', (): object => ({
-  info: (): void => {},
-  error: (): void => {},
-  debug: (): void => {},
-}))
-const mockMiddlewares = {
-  register: (): Promise<void> => Promise.resolve(),
-}
-jest.mock('../middlewares', (): object => mockMiddlewares)
+jest.mock(
+  'koa',
+  () =>
+    class KoaMock {
+      public use() {
+        return
+      }
+      public emit() {
+        return
+      }
+      public on() {
+        return
+      }
+      public listen() {
+        return
+      }
+    },
+)
+
+jest.mock(
+  '../routes/router',
+  (): Record<string, unknown> => ({
+    routes: (): string => 'routes',
+  }),
+)
+jest.mock(
+  '../../../interfaces/tools/config/config',
+  (): Record<string, unknown> => ({
+    get: (): string => '3000',
+  }),
+)
+jest.mock(
+  '../../../interfaces/tools/logger',
+  (): Record<string, unknown> => ({
+    info: (): void => {
+      return
+    },
+    error: (): void => {
+      return
+    },
+    debug: (): void => {
+      return
+    },
+  }),
+)
+jest.mock(
+  '../middlewares',
+  (): Record<string, unknown> => ({
+    register: (): Promise<void> => Promise.resolve(),
+  }),
+)
 import app from '../'
 
 describe('Server', (): void => {
@@ -36,15 +64,15 @@ describe('Server', (): void => {
   })
 
   it('should boot', async (): Promise<void> => {
-    jest.spyOn(mockMiddlewares, 'register')
-    jest.spyOn(routerMock, 'routes')
+    jest.spyOn(middlewares, 'register')
+    jest.spyOn(router, 'routes')
     jest.spyOn(app, 'use')
     jest.spyOn(app, 'emit')
 
     await app.boot()
 
-    expect(mockMiddlewares.register).toHaveBeenCalledWith(app)
-    expect(routerMock.routes).toHaveBeenCalled()
+    expect(middlewares.register).toHaveBeenCalledWith(app)
+    expect(router.routes).toHaveBeenCalled()
     expect(app.use).toHaveBeenCalledWith('routes')
     expect(app.emit).toHaveBeenCalledWith('application:booted')
   })

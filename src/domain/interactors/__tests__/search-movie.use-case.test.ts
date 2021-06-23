@@ -46,7 +46,7 @@ describe('Health use case', () => {
     const search = { term: '' }
     fetchMock.mockImplementationOnce(() => listA).mockImplementationOnce(() => listB)
 
-    let response = await searchUseCase.execute(search)
+    const response = await searchUseCase.execute(search)
 
     expect(fetchMock).toHaveBeenCalledWith(search)
     expect(fetchMock).toHaveBeenCalledTimes(2)

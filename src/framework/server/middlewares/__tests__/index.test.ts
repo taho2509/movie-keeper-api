@@ -1,25 +1,44 @@
-import koa from 'koa'
-import logger from '../../../../interfaces/tools/logger'
+import 'koa'
+import '../../../../interfaces/tools/logger'
 import app from '../..'
 import middlewaresHandler, { MiddlewareModule } from '../index'
 import middlewareConfiguration from '../config'
 
-jest.mock('../../../../interfaces/tools/logger', (): object => ({
-  info: (): void => {},
-  error: (): void => {},
-  debug: (): void => {},
-  verbose: (): void => {},
-}))
+jest.mock(
+  '../../../../interfaces/tools/logger',
+  (): Record<string, unknown> => ({
+    info: (): void => {
+      return
+    },
+    error: (): void => {
+      return
+    },
+    debug: (): void => {
+      return
+    },
+    verbose: (): void => {
+      return
+    },
+  }),
+)
 
-class Middleware {}
-jest.mock('koa', (): object => ({
-  Middleware: Middleware,
-}))
+class MiddlewareMock {}
+jest.mock(
+  'koa',
+  (): Record<string, unknown> => ({
+    Middleware: class MiddlewareMock {},
+  }),
+)
 
-jest.mock('../..', (): object => ({
-  CustomApp: class CustomApp {},
-  use() {},
-}))
+jest.mock(
+  '../..',
+  (): Record<string, unknown> => ({
+    CustomApp: class CustomApp {},
+    use() {
+      return
+    },
+  }),
+)
 
 describe('ErrorsHandler Middleware', (): void => {
   describe('__getAllActiveMiddlewares inner function test', (): void => {
@@ -52,9 +71,11 @@ describe('ErrorsHandler Middleware', (): void => {
     })
 
     it('should load all active middleware modules discovered', async (done): Promise<void> => {
-      type middlewareModule = Promise<{ default: Middleware }>
+      type middlewareModule = Promise<{ default: MiddlewareMock }>
       const dummyMiddlewareModule: middlewareModule = new Promise((resolve): void =>
-        resolve({ default: async (ctx: object, next: () => Promise<void>): Promise<void> => await next() }),
+        resolve({
+          default: async (ctx: Record<string, unknown>, next: () => Promise<void>): Promise<void> => await next(),
+        }),
       )
       jest.spyOn(middlewaresHandler, '__getAllActiveMiddlewares').mockImplementation(() => [
         {

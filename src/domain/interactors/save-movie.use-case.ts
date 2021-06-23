@@ -8,7 +8,7 @@ export default class SaveMovieUseCase implements Interactor {
     // private readonly movieProvider: DataProvider,
     private readonly eventProvider: NotificationProvider,
   ) {}
-  public async execute(input: Movie): Promise<object> {
+  public async execute(input: Movie): Promise<Record<string, unknown>> {
     // const movie = await this.movieProvider.fetch({ term: input.title })
     this.eventProvider.notify(input)
     return {

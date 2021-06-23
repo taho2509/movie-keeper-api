@@ -2,7 +2,7 @@ import { Middleware } from 'koa'
 import HealthController from '../../../../interfaces/controllers/health'
 
 const healthService: Middleware = async (ctx): Promise<void> => {
-  let response = (await new HealthController().get()) as { body: object }
+  const response = (await new HealthController().get()) as { body: Record<string, unknown> }
 
   ctx.body = response.body
 }

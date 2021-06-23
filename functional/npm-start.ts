@@ -6,7 +6,9 @@ export default (): Promise<void> =>
       if (error) {
         reject(error)
       }
-      npm.commands['run-script'](['start:test'], (): void => {})
+      npm.commands['run-script'](['start:test'], (): void => {
+        return
+      })
       setTimeout((): void => {
         resolve()
       }, 10000) // giving some time to start

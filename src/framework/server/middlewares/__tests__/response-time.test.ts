@@ -18,7 +18,7 @@ describe('ResponseTime Middeware', (): void => {
   it('should set x-response-time header on response after call', async (): Promise<void> => {
     const mockedContext = createMockContext()
 
-    let longExecution = new Promise<void>((res): void => res())
+    const longExecution = new Promise<void>((res): void => res())
 
     await responseTimeMiddleware(mockedContext, (): Promise<void> => longExecution)
 

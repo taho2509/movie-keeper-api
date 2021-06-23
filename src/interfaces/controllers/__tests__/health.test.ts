@@ -6,7 +6,7 @@ const mockedHealthUseCase = HealthUseCase as jest.Mock<HealthUseCase>
 
 describe('HealthController', (): void => {
   it('should work', async (): Promise<void> => {
-    let response = await new HealthController().get()
+    const response = await new HealthController().get()
 
     expect(mockedHealthUseCase).toBeCalled()
     expect(response).toBeUndefined()

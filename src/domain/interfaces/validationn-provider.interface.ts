@@ -1,3 +1,3 @@
 export default interface ValidationProvider {
-  validate(target: object): Promise<boolean>
+  validate(target: Record<string, unknown>): Promise<boolean>
 }

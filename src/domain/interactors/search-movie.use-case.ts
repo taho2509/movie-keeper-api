@@ -10,7 +10,7 @@ export default class SearchMovieUseCase implements Interactor {
     private readonly localMovieProvider: DataProvider,
     private readonly eventProvider: NotificationProvider,
   ) {}
-  public async execute(search: Search): Promise<object> {
+  public async execute(search: Search): Promise<Record<string, unknown>> {
     let external = (await this.externalMovieProvider.fetch(search)) as Movie[]
     this.eventProvider.notify(external)
     const local = (await this.localMovieProvider.fetch(search)) as Movie[]
@@ -18,8 +18,7 @@ export default class SearchMovieUseCase implements Interactor {
     external = this.removeDuplicates(external)
     external = this.removeExistingResultsFromExternal(external, local)
 
-    let response = { body: { local: local, external: external } }
-    return response
+    return { body: { local: local, external: external } }
   }
 
   private removeDuplicates(movies: Movie[]): Movie[] {
@@ -30,7 +29,7 @@ export default class SearchMovieUseCase implements Interactor {
     return external.filter((externalMovie: Movie): boolean => this.movieIsInArray(externalMovie, local))
   }
 
-  private movieIsInArray(movie: Movie, movies: Movie[], index: number = -1): boolean {
+  private movieIsInArray(movie: Movie, movies: Movie[], index = -1): boolean {
     return (
       movies.findIndex((arrayMovie: Movie, arrayIndex: number): boolean => {
         const same = this.areTheSameMovie(arrayMovie, movie)

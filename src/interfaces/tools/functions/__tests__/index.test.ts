@@ -7,8 +7,6 @@ describe('Utility functions tests', (): void => {
     logger.mute()
   })
 
-  afterEach((): void => {})
-
   afterAll((): void => {
     logger.unmute()
   })

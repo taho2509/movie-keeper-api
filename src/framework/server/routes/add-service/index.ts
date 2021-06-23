@@ -8,7 +8,7 @@ const addService: Middleware = async (ctx): Promise<void> => {
     year: ctx.request.body.year,
     poster: '',
   }
-  let response = (await new MovieController().add(movie)) as { body: object }
+  const response = (await new MovieController().add(movie)) as { body: Record<string, unknown> }
 
   ctx.body = response.body
 }

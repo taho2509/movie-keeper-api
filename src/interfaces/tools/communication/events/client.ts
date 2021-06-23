@@ -9,13 +9,18 @@ interface Stan {
 let stan: Stan
 
 if (config.get('NODE_ENV') !== 'testing') {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   stan = require('node-nats-streaming').connect('test-cluster', 'demo-test-automation', {
     url: config.get('NATS_URL'),
   })
 } else {
   stan = {
-    on(): void {},
-    publish(): void {},
+    on(): void {
+      return
+    },
+    publish(): void {
+      return
+    },
   }
 }
 
@@ -27,7 +32,7 @@ stan.on('close', (): void => {
   process.exit()
 })
 
-export default (channel: string, message: object): Promise<string> =>
+export default (channel: string, message: Record<string, unknown>): Promise<string> =>
   new Promise((resolve, reject): void => {
     stan.publish(channel, JSON.stringify(message), (err: string, guid: string): void => {
       if (err) {
