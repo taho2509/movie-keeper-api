@@ -11,7 +11,7 @@ describe('ErrorsHandler Middeware', (): void => {
     logger.unmute()
   })
 
-  it('should capture an error thrown from inside any call process', async (done): Promise<void> => {
+  it('should capture an error thrown from inside any call process', async (): Promise<void> => {
     const errorMsg = 'DUMMY_ERROR'
     const mockedContext = createMockContext()
     mockedContext.app.emit = jest.fn()
@@ -32,6 +32,5 @@ describe('ErrorsHandler Middeware', (): void => {
         }
       ).message,
     ).toEqual(errorMsg)
-    done()
   })
 })

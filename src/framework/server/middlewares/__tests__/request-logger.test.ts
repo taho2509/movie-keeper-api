@@ -11,12 +11,11 @@ describe('LoggerMiddleware Middeware', (): void => {
     logger.unmute()
   })
 
-  it('should call logger.info after call is returning', async (done): Promise<void> => {
+  it('should call logger.info after call is returning', async (): Promise<void> => {
     const mockedContext = createMockContext()
     const loggerSpy = jest.spyOn(logger, 'info')
 
     await loggerMiddleware(mockedContext, jest.fn())
     expect(loggerSpy).toBeCalled()
-    done()
   })
 })

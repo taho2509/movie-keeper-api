@@ -57,20 +57,15 @@ describe('ErrorsHandler Middleware', (): void => {
   })
 
   describe('register', (): void => {
-    it('should not load any module when no active middleware is set', async (done): Promise<void> => {
+    it('should not load any module when no active middleware is set', async (): Promise<void> => {
       jest.spyOn(middlewaresHandler, '__getAllActiveMiddlewares').mockImplementation((): [] => [])
       const useSpy = jest.spyOn(app, 'use')
 
-      try {
-        await middlewaresHandler.register(app)
-        expect(useSpy).not.toBeCalled()
-        done()
-      } catch (error) {
-        done.fail(error)
-      }
+      await middlewaresHandler.register(app)
+      expect(useSpy).not.toBeCalled()
     })
 
-    it('should load all active middleware modules discovered', async (done): Promise<void> => {
+    it('should load all active middleware modules discovered', async (): Promise<void> => {
       type middlewareModule = Promise<{ default: MiddlewareMock }>
       const dummyMiddlewareModule: middlewareModule = new Promise((resolve): void =>
         resolve({
@@ -89,13 +84,8 @@ describe('ErrorsHandler Middleware', (): void => {
       ])
       const useSpy = jest.spyOn(app, 'use')
 
-      try {
-        await middlewaresHandler.register(app)
-        expect(useSpy).toBeCalledTimes(2)
-        done()
-      } catch (error) {
-        done.fail(error)
-      }
+      await middlewaresHandler.register(app)
+      expect(useSpy).toBeCalledTimes(2)
     })
   })
 })
