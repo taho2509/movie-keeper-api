@@ -17,7 +17,7 @@ export default class NatsProvider implements NotificationProvider {
     },
   ) {}
 
-  public notify(data: object): boolean {
+  public notify(data: Record<string, unknown>): boolean {
     try {
       logger.info(`Trying to send message to nats`)
 

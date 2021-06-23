@@ -1,3 +1,3 @@
-export default interface Search {
+export default interface Search extends Record<string, unknown> {
   term: string
 }

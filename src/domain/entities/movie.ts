@@ -1,6 +1,6 @@
 import { Tag, Name } from '../types'
 
-export default interface Movie {
+export default interface Movie extends Record<string, unknown> {
   title: string
   year: string
   poster: string

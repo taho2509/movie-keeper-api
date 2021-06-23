@@ -8,7 +8,7 @@ describe('Health use case', (): void => {
   })
 
   it('should works', async (): Promise<void> => {
-    let response = await healthInteractor.execute()
+    const response = await healthInteractor.execute()
     expect(response.body).toStrictEqual({ message: 'The API is healthy' })
   })
 })

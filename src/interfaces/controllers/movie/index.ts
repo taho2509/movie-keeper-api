@@ -8,37 +8,32 @@ import NatsProvider from '../../tools/communication/events/nats-notification.pro
 import Movie from '../../../domain/entities/movie'
 
 export default class MovieController {
-  public constructor() {}
-
-  public async search(search: Search): Promise<object> {
+  public async search(search: Search): Promise<Record<string, unknown>> {
     const searchUseCase = new SearchUseCase(
       new SearchProvider(),
       new MongoProvider(),
       new NatsProvider({ channel: 'movie_search', type: 'com.movie-keeper.movie.search' }),
     )
 
-    let response = await searchUseCase.execute(search)
-    return response
+    return await searchUseCase.execute(search)
   }
 
-  public async get(search: Search): Promise<object> {
+  public async get(search: Search): Promise<Record<string, unknown>> {
     const searchUseCase = new SearchUseCase(
       new MovieProvider(),
       new MongoProvider(),
       new NatsProvider({ channel: 'movie_search', type: 'com.movie-keeper.movie.search' }),
     )
 
-    let response = await searchUseCase.execute(search)
-    return response
+    return await searchUseCase.execute(search)
   }
 
-  public async add(movie: Movie): Promise<object> {
+  public async add(movie: Movie): Promise<Record<string, unknown>> {
     const saveUseCase = new SaveMovieUseCase(
       // new MovieProvider(),
       new NatsProvider({ channel: 'movie_viewed', type: 'com.movie-keeper.movie.viewed' }),
     )
 
-    let response = await saveUseCase.execute(movie)
-    return response
+    return await saveUseCase.execute(movie)
   }
 }
