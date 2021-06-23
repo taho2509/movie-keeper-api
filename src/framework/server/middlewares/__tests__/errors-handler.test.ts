@@ -23,8 +23,15 @@ describe('ErrorsHandler Middeware', (): void => {
           rej(new Error(errorMsg))
         }),
     )
+
     expect(mockedContext.status).toEqual(500)
-    expect(mockedContext.body.message).toEqual(errorMsg)
+    expect(
+      (
+        mockedContext.body as {
+          message: string
+        }
+      ).message,
+    ).toEqual(errorMsg)
     done()
   })
 })
