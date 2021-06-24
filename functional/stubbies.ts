@@ -1,4 +1,4 @@
-import { Stubby } from 'stubby'
+import { Stubby, StubbyData } from 'stubby'
 import fs from 'fs'
 import yaml from 'js-yaml'
 
@@ -24,11 +24,16 @@ export default (port: number): void => {
     process.exit(0)
   }
 
-  stubbyServer.start({
-    data: endpointData,
-    stubs: port,
-    admin: 8893,
-    quiet: false,
-    datadir: 'stubs',
-  })
+  stubbyServer.start(
+    {
+      data: endpointData as StubbyData,
+      stubs: port,
+      admin: 8893,
+      quiet: false,
+      datadir: 'stubs',
+    },
+    () => {
+      console.log('stubbies started')
+    },
+  )
 }
