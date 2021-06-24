@@ -2,7 +2,7 @@ import npm from 'npm'
 
 export default (): Promise<void> =>
   new Promise((resolve, reject): void => {
-    npm.load({}, (error): void => {
+    npm.load((error): void => {
       if (error) {
         reject(error)
       }
