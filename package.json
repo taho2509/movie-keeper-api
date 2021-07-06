@@ -58,7 +58,7 @@
     "husky": "^7.0.0",
     "jest": "^27.0.6",
     "js-yaml": "^4.1.0",
-    "mongodb-memory-server": "^7.1.0",
+    "mongodb-memory-server": "^7.2.0",
     "newman": "^5.2.4",
     "nodemon": "^2.0.9",
     "npm": "^7.19.1",
