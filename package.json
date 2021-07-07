@@ -42,7 +42,7 @@
     "@types/jest": "^26.0.23",
     "@types/js-yaml": "^4.0.2",
     "@types/koa": "^2.13.4",
-    "@types/koa__cors": "^3.0.2",
+    "@types/koa__cors": "^3.0.3",
     "@types/koa-bodyparser": "^4.3.2",
     "@types/koa-router": "^7.4.3",
     "@types/newman": "^5.1.3",
