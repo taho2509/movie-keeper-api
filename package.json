@@ -39,7 +39,7 @@
     "@shopify/jest-koa-mocks": "^3.0.3",
     "@types/cls-hooked": "^4.3.3",
     "@types/istanbul-lib-report": "^3.0.0",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.0",
     "@types/js-yaml": "^4.0.2",
     "@types/koa": "^2.13.4",
     "@types/koa__cors": "^3.0.3",
