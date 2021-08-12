@@ -46,7 +46,7 @@
     "@types/koa-bodyparser": "^4.3.3",
     "@types/koa-router": "^7.4.4",
     "@types/newman": "^5.1.4",
-    "@types/npm": "^2.0.32",
+    "@types/npm": "^7.19.0",
     "@types/stubby": "^4.1.1",
     "@types/uuid": "^8.3.1",
     "@types/winston": "^2.4.4",
