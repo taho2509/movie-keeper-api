@@ -26,7 +26,7 @@ const MovieSchema = new mongoose.Schema({
 
 const MovieModel = mongoose.model<MovieDocument>('Movie', MovieSchema)
 
-mongoose.connect(config.get('MONGO_URI'), { useNewUrlParser: true, useUnifiedTopology: true }, (err): void => {
+mongoose.connect(config.get('MONGO_URI'), (err): void => {
   if (err) throw err
   logger.info('Connected to mongo db')
 })
