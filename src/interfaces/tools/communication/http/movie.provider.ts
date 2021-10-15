@@ -8,6 +8,27 @@ import config from '../../config/config'
 const url = config.get('OMDB_URL')
 const apiKey = config.get('OMDB_API_KEY')
 
+interface MovieResponse {
+  Response: string
+  Error: string
+  Title: string
+  Year: string
+  imdbID: string
+  Type: string
+  Poster: string
+  Released: string
+  Runtime: string
+  Genre: string
+  Director: string
+  Writer: string
+  Actors: string
+  Plot: string
+  Language: string
+  Country: string
+  Awards: string
+  Production: string
+}
+
 export default class implements DataProvider {
   public async fetch(search: Search): Promise<Movie> {
     const data = this.makeRequest(search)
@@ -23,7 +44,7 @@ export default class implements DataProvider {
       },
     }
     try {
-      const { data } = await axios.get(url, options)
+      const { data } = await axios.get<MovieResponse>(url, options)
 
       if (data.Response === 'True') {
         const parsed: Movie = {

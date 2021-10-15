@@ -7,12 +7,15 @@ import config from '../../config/config'
 const url = config.get('OMDB_URL')
 const apiKey = config.get('OMDB_API_KEY')
 
-interface IncommingResult {
-  Title: string
-  Year: string
-  imdbID: string
-  Type: string
-  Poster: string
+interface MovieResponse {
+  Response: string
+  Search: {
+    Title: string
+    Year: string
+    imdbID: string
+    Type: string
+    Poster: string
+  }[]
 }
 
 export default class implements DataProvider {
@@ -30,10 +33,10 @@ export default class implements DataProvider {
       },
     }
     try {
-      const { data } = await axios.get(url, options)
+      const { data } = await axios.get<MovieResponse>(url, options)
 
       if (data.Response === 'True') {
-        const parsed: Movie[] = data.Search.map((movie: IncommingResult): Movie => {
+        const parsed: Movie[] = data.Search.map((movie): Movie => {
           return {
             title: movie.Title,
             year: movie.Year,
