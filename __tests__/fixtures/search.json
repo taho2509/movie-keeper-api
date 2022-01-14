@@ -1,0 +1,111 @@
+{
+  "scope": "http://www.omdbapi.com:80",
+  "method": "GET",
+  "path": "/?s=hercules&type=movie&apikey=1234567",
+  "body": "",
+  "status": 200,
+  "response": {
+    "Search": [
+      {
+        "Title": "Hercules",
+        "Year": "1997",
+        "imdbID": "tt0119282",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZDcwYjEyNWItMGI1Mi00MjI1LWIyMDEtMTQ4YjhkNjM4NDU3XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg"
+      },
+      {
+        "Title": "The Legend of Hercules",
+        "Year": "2014",
+        "imdbID": "tt1043726",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTQwMjEyODQxMV5BMl5BanBnXkFtZTgwMDQxMjE3MDE@._V1_SX300.jpg"
+      },
+      {
+        "Title": "Hercules in New York",
+        "Year": "1970",
+        "imdbID": "tt0065832",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDE2MDRmMjQtNGM0NC00N2U4LWI2ZGYtM2I2MzIyNzY5NjlmXkEyXkFqcGdeQXVyNDIwODAwNzg@._V1_SX300.jpg"
+      },
+      {
+        "Title": "Pocket Hercules: Naim Süleymanoglu",
+        "Year": "2019",
+        "imdbID": "tt9500372",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BM2E2MjRiZDctMmQwMC00Y2Y4LWFiYjctYmFkN2Y4NmMwYTM1XkEyXkFqcGdeQXVyMTA0NDE3ODU2._V1_SX300.jpg"
+      },
+      {
+        "Title": "Hercules Reborn",
+        "Year": "2014",
+        "imdbID": "tt3499424",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTA1MzA3ODQzOTleQTJeQWpwZ15BbWU4MDM0ODgzOTEx._V1_SX300.jpg"
+      },
+      {
+        "Title": "Hercules",
+        "Year": "1983",
+        "imdbID": "tt0085672",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMGEzMzRkMDMtZTQ5NC00MTZiLWIyZDYtMWM5NzMyNGZkNTE5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+      },
+      {
+        "Title": "Hercules and the Amazon Women",
+        "Year": "1994",
+        "imdbID": "tt0110015",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTcxMjExOTc3M15BMl5BanBnXkFtZTcwODA5MjYyMQ@@._V1_SX300.jpg"
+      },
+      {
+        "Title": "Hercules: The Legendary Journeys - Hercules and the Lost Kingdom",
+        "Year": "1994",
+        "imdbID": "tt0110017",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYWE5MTAyZDktM2FkYy00NDQ3LWI3OTAtOTc0ODc2OTIwYzI0XkEyXkFqcGdeQXVyNTc0NjY1ODk@._V1_SX300.jpg"
+      },
+      {
+        "Title": "Hercules: The Legendary Journeys - Hercules and the Circle of Fire",
+        "Year": "1994",
+        "imdbID": "tt0110016",
+        "Type": "movie",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYjBmMGVjYmQtYTIyYy00ZDhmLTk0ZGEtNDI3OTJlZGYyMDkxXkEyXkFqcGdeQXVyNDUxNjc5NjY@._V1_SX300.jpg"
+      }
+    ],
+    "totalResults": "104",
+    "Response": "True"
+  },
+  "rawHeaders": [
+    "Date",
+    "Wed, 12 Jan 2022 23:37:03 GMT",
+    "Content-Type",
+    "application/json; charset=utf-8",
+    "Content-Length",
+    "2248",
+    "Connection",
+    "close",
+    "Cache-Control",
+    "public, max-age=86400",
+    "Expires",
+    "Thu, 13 Jan 2022 00:34:34 GMT",
+    "Last-Modified",
+    "Wed, 12 Jan 2022 23:34:34 GMT",
+    "Vary",
+    "*",
+    "X-AspNet-Version",
+    "4.0.30319",
+    "X-Powered-By",
+    "ASP.NET",
+    "Access-Control-Allow-Origin",
+    "*",
+    "CF-Cache-Status",
+    "HIT",
+    "Age",
+    "149",
+    "Accept-Ranges",
+    "bytes",
+    "Server",
+    "cloudflare",
+    "CF-RAY",
+    "6cca35e2f81a6f29-SCL"
+  ],
+  "responseIsBinary": false
+}

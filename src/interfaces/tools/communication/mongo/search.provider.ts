@@ -2,8 +2,6 @@ import mongoose from 'mongoose'
 import DataProvider from '../../../../domain/interfaces/data-provider.interface'
 import Search from '../../../../domain/entities/search'
 import Movie from '../../../../domain/entities/movie'
-import logger from '../../logger'
-import config from '../../config/config'
 
 export interface MovieDocument extends mongoose.Document, Movie {}
 
@@ -24,12 +22,7 @@ const MovieSchema = new mongoose.Schema({
   production: String,
 })
 
-const MovieModel = mongoose.model<MovieDocument>('Movie', MovieSchema)
-
-mongoose.connect(config.get('MONGO_URI'), (err): void => {
-  if (err) throw err
-  logger.info('Connected to mongo db')
-})
+export const MovieModel = mongoose.model<MovieDocument>('Movie', MovieSchema)
 
 const findMovie = (title: string): Promise<mongoose.Document[]> =>
   new Promise((resolve, reject): void => {

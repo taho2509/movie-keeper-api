@@ -8,7 +8,7 @@ interface Stan {
 
 let stan: Stan
 
-if (config.get('NODE_ENV') !== 'testing') {
+if (config.get('NODE_ENV') !== 'test') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   stan = require('node-nats-streaming').connect('test-cluster', 'demo-test-automation', {
     url: config.get('NATS_URL'),
