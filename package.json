@@ -30,7 +30,7 @@
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.1.1",
-    "mongoose": "^6.2.0",
+    "mongoose": "^6.2.1",
     "node-nats-streaming": "^0.3.2",
     "uuid": "^8.3.2",
     "winston": "^3.5.0"
@@ -60,7 +60,7 @@
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "newman": "^5.3.1",
-    "nock": "^13.2.2",
+    "nock": "^13.2.4",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "stubby": "^5.1.0",
