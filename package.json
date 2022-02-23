@@ -30,7 +30,7 @@
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.1.1",
-    "mongoose": "^6.2.1",
+    "mongoose": "^6.2.3",
     "node-nats-streaming": "^0.3.2",
     "uuid": "^8.3.2",
     "winston": "^3.6.0"
@@ -52,7 +52,7 @@
     "@types/supertest": "^2.0.11",
     "@types/uuid": "^8.3.4",
     "@types/winston": "^2.4.4",
-    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.11.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
