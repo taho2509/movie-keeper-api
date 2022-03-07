@@ -44,7 +44,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/koa": "^2.13.4",
     "@types/koa__cors": "^3.1.1",
-    "@types/koa-bodyparser": "^4.3.5",
+    "@types/koa-bodyparser": "^4.3.6",
     "@types/koa-router": "^7.4.4",
     "@types/mongodb": "^4.0.7",
     "@types/newman": "^5.3.0",
