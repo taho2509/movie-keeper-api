@@ -36,7 +36,7 @@
     "winston": "^3.6.0"
   },
   "devDependencies": {
-    "@shelf/jest-mongodb": "^2.2.0",
+    "@shelf/jest-mongodb": "^2.2.1",
     "@shopify/jest-koa-mocks": "^3.1.4",
     "@types/cls-hooked": "^4.3.3",
     "@types/istanbul-lib-report": "^3.0.0",
