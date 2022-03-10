@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.2.1",
-    "@shopify/jest-koa-mocks": "^3.1.4",
+    "@shopify/jest-koa-mocks": "^3.1.5",
     "@types/cls-hooked": "^4.3.3",
     "@types/istanbul-lib-report": "^3.0.0",
     "@types/jest": "^27.4.1",
