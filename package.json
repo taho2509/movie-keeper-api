@@ -33,7 +33,7 @@
     "mongoose": "^6.2.9",
     "node-nats-streaming": "^0.3.2",
     "uuid": "^8.3.2",
-    "winston": "^3.7.1"
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.2.1",
