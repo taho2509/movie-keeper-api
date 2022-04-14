@@ -14,8 +14,7 @@
     "test": "jest --forceExit",
     "test:dev": "jest --watchAll",
     "coverage": "jest --coverage",
-    "newman": "newman run postman_collection/movie-keeper-api.postman_collection.json --bail",
-    "stubby": "node node_modules/stubby/bin/stubby -d stubs/dependencies.yaml -s 4000 -t 8084 -a 8893"
+    "newman": "newman run postman_collection/movie-keeper-api.postman_collection.json --bail"
   },
   "author": "Angel Ulice Tabares Gonzalez <taho2509@gmail.com>",
   "license": "ISC",
@@ -63,7 +62,6 @@
     "nock": "^13.2.4",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
-    "stubby": "^5.1.0",
     "supertest": "^6.2.2",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
