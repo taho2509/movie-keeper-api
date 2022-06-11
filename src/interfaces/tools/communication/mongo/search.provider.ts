@@ -26,10 +26,18 @@ export const MovieModel = mongoose.model<MovieDocument>('Movie', MovieSchema)
 
 const findMovie = (title: string): Promise<mongoose.Document[]> =>
   new Promise((resolve, reject): void => {
-    MovieModel.find({ title: { $regex: '.*' + title + '.*', $options: 'i' } }, (err, res): void => {
-      if (err) reject(err)
-      else resolve(res)
-    })
+    MovieModel.find(
+      { title: { $regex: '.*' + title + '.*', $options: 'i' } },
+      (
+        err: mongoose.MongooseError,
+        res:
+          | mongoose.Document<string, never, MovieDocument>[]
+          | PromiseLike<mongoose.Document<string, never, MovieDocument>[]>,
+      ): void => {
+        if (err) reject(err)
+        else resolve(res)
+      },
+    )
   })
 
 export default class implements DataProvider {
