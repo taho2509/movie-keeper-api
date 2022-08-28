@@ -35,7 +35,7 @@
     "winston": "^3.8.1"
   },
   "devDependencies": {
-    "@shelf/jest-mongodb": "^4.0.0",
+    "@shelf/jest-mongodb": "^4.1.0",
     "@shopify/jest-koa-mocks": "^5.0.0",
     "@types/cls-hooked": "^4.3.3",
     "@types/istanbul-lib-report": "^3.0.0",
@@ -51,8 +51,8 @@
     "@types/supertest": "^2.0.12",
     "@types/uuid": "^8.3.4",
     "@types/winston": "^2.4.4",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
