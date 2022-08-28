@@ -19,7 +19,7 @@
   "author": "Angel Ulice Tabares Gonzalez <taho2509@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@koa/cors": "^3.3.0",
+    "@koa/cors": "^3.4.1",
     "axios": "^0.27.2",
     "cls-hooked": "^4.2.2",
     "correlation-id": "^4.0.0",
