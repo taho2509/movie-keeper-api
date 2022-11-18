@@ -24,7 +24,7 @@
     "cls-hooked": "^4.2.2",
     "correlation-id": "^4.0.0",
     "dotenv": "^16.0.3",
-    "http-graceful-shutdown": "^3.1.8",
+    "http-graceful-shutdown": "^3.1.11",
     "http-status-codes": "^2.2.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
